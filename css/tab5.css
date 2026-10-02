@@ -1,0 +1,5 @@
+#tab5 label { font-size: 24px; line-height: 2.2; }
+#tab5 input[type = "radio"] {transform: scale(1.6); margin-right: 14px; }
+#tab5 select { font-size: 24px; padding: 10px; }
+#orderBtn { font-size: 24px; padding: 14px 24px; }
+#choiceResult { font-weight: bold; color: #6876d5; font-size: 26px}; 
