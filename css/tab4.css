@@ -1,0 +1,48 @@
+
+#profile-image-button {
+	display: block;
+	margin: 28px auto 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+#profile-image {
+	display: block;
+	width: 160px;
+	height: 160px;
+}
+
+.profile-name {
+	margin: 4px 0 24px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.profile-notice {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 -20px;
+	padding: 20px;
+	background: #f44336;
+	color: white;
+}
+
+.profile-notice[hidden] {
+	display: none;
+}
+
+.profile-notice p {
+	margin: 0;
+}
+
+#close-profile-notice {
+	border: 0;
+	padding: 0;
+	background: none;
+	color: inherit;
+	font-size: 24px;
+	cursor: pointer;
+}

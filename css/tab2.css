@@ -1,0 +1,10 @@
+#tab2 {
+	position: relative;
+}
+
+#tab2 p {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	margin: 0;
+}
