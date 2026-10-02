@@ -11,6 +11,8 @@
     <link rel= "stylesheet" href = "css/tab4.css">
     <link rel= "stylesheet" href = "css/tab5.css">
     <link rel= "stylesheet" href = "css/tab6.css">
+    <script src="js/chart.js"></script>
+    <script src="js/chart-labels.js"></script>
 </head>
 
 <body>
@@ -25,8 +27,16 @@
                 <p>Down Here</p>
             </section>
 
-            <section id = "tab3" class = "tab-page">
+            <section
+                id = "tab3" 
+                class = "tab-page"
+            >
                 <h2>Colors</h2>
+                <p class="colorful-1">CMSC434 grade distribution</p>
+                <p class="colorful-2">from PlanetTerp</p>
+                <canvas
+                    id="colorful-chart" 
+                    style="width:100%; max-width:600px"></canvas>
             </section>
 
             <section id = "tab4" class = "tab-page">

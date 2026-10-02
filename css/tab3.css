@@ -1,0 +1,21 @@
+
+.colorful-1, .colorful-2 {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0.5%;
+  margin: 0;
+}
+
+.colorful-1 {
+  background-color: black;
+  color: yellow;
+}
+
+.colorful-2 {
+  background-color: yellow;
+  color: purple;
+}
+
+#colorful-chart {
+  margin-top: 5%;
+}
