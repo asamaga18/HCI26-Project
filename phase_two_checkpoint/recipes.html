@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Kompanion | Recipes</title>
+
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/recipes.css">
+</head>
+
+<body>
+    <div class="recipes-screen">
+        <main>
+            <!-- Header -->
+            <header class="recipes-header">
+                <p class="eyebrow">KITCHEN KOMPANION</p>
+                <h1>Recipes</h1>
+            </header>
+
+            <!-- Recipe Controls -->
+            <section class="recipe-controls">
+                <div class="recipe-tabs">
+                    <button class="recipe-tab active" type="button">
+                        Ready to Cook
+                    </button>
+                    <button class="recipe-tab" type="button">
+                        Requires Shopping
+                    </button>
+                </div>
+
+                <div class="recipe-filters">
+                    <button class="recipe-filter active" type="button">
+                        Use expiring food
+                    </button>
+                    <button class="recipe-filter" type="button">
+                        Under 30 min
+                    </button>
+                    <button class="recipe-filter" type="button">
+                        Beginner
+                    </button>
+                </div>
+            </section>
+
+            <!-- Recipes Section -->
+            <section class="recipe-section">
+                <div class="recipe-section-heading">
+                    <h2>Ready to cook</h2>
+                    <span>3 recipes</span>
+                </div>
+
+                <ul class="recipe-list">
+
+                    <!-- Spinach Omelet -->
+                    <li class="recipe-row">
+                        <div class="recipe-details">
+                            <h3>Spinach Omelet</h3>
+                            <p>
+                                15 min <span>·</span>
+                                Beginner <span>·</span>
+                                Serves 2
+                            </p>
+                            <p class="recipe-expiring">
+                                Uses spinach · expires in 2 days
+                            </p>
+                        </div>
+
+                        <div class="recipe-actions">
+                            <button
+                                class="favorite active"
+                                type="button"
+                                aria-label="Remove Spinach Omelet from favorites"
+                            >
+                                ♥
+                            </button>
+                            <span class="recipe-status ready">Ready</span>
+                        </div>
+                    </li>
+
+                    <!-- Pasta Primavera -->
+                    <li class="recipe-row">
+                        <div class="recipe-details">
+                            <h3>Pasta Primavera</h3>
+                            <p>
+                                30 min <span>·</span>
+                                Beginner <span>·</span>
+                                Serves 4
+                            </p>
+                            <p class="recipe-expiring">
+                                Uses spinach · expires in 2 days
+                            </p>
+                        </div>
+
+                        <div class="recipe-actions">
+                            <button
+                                class="favorite"
+                                type="button"
+                                aria-label="Add Pasta Primavera to favorites"
+                            >
+                                ♡
+                            </button>
+                            <span class="recipe-status ready">Ready</span>
+                        </div>
+                    </li>
+
+                    <!-- Veggie Stir Fry -->
+                    <li class="recipe-row">
+                        <div class="recipe-details">
+                            <h3>Veggie Stir Fry</h3>
+                            <p>
+                                25 min <span>·</span>
+                                Beginner <span>·</span>
+                                Serves 3
+                            </p>
+                        </div>
+
+                        <div class="recipe-actions">
+                            <button
+                                class="favorite"
+                                type="button"
+                                aria-label="Add Veggie Stir Fry to favorites"
+                            >
+                                ♡
+                            </button>
+                            <span class="recipe-status ready">Ready</span>
+                        </div>
+                    </li>
+
+                </ul>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav" aria-label="Main navigation">
+            <a href="inventory.html">Inventory</a>
+            <a href="recipes.html" class="active" aria-current="page">
+                Recipes
+            </a>
+            <a href="planner.html">Planner</a>
+        </nav>
+    </div>
+</body>
+</html>
