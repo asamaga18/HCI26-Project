@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Kompanion - Inventory</title>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="inventory-header">
+      <h1>My Kitchen</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Search inventory">
+        <button class="add-button" aria-label="Add inventory item">+</button>
+      </div>
+    </header>
+
+    <main class="inventory-main">
+
+      <!-- Fridge Section (Expanded) -->
+      <section class="storage-group expanded">
+        <div class="storage-header">
+          <h2>Fridge</h2>
+          <div class="storage-actions">
+            <button class="edit-btn" aria-label="Edit Fridge items">Edit</button>
+          </div>
+        </div>
+
+        <ul class="inventory-list">
+          <li class="inventory-item">
+            <div class="item-details">
+              <span class="item-name">Greek yogurt</span>
+              <span class="badge badge-danger">No stock</span>
+            </div>
+            <span class="item-qty">0 tubs</span>
+          </li>
+
+          <li class="inventory-item">
+            <div class="item-details">
+              <span class="item-name">Spinach</span>
+              <span class="badge badge-warning">Expires tomorrow</span>
+            </div>
+            <span class="item-qty">1 bag</span>
+          </li>
+
+          <li class="inventory-item">
+            <div class="item-details">
+              <span class="item-name">Milk</span>
+            </div>
+            <span class="item-qty">1 gallon</span>
+          </li>
+
+          <li class="inventory-item">
+            <div class="item-details">
+              <span class="item-name">Eggs</span>
+            </div>
+            <span class="item-qty">0.5 dozen</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Pantry Section (Collapsed) -->
+      <section class="storage-group collapsed">
+        <div class="storage-header">
+          <h2>Pantry</h2>
+          <div class="storage-actions">
+            <button class="edit-btn" aria-label="Edit Pantry items">Edit</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Freezer Section (Collapsed) -->
+      <section class="storage-group collapsed">
+        <div class="storage-header">
+          <h2>Freezer</h2>
+          <div class="storage-actions">
+            <button class="edit-btn" aria-label="Edit Freezer items">Edit</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add New Section -->
+      <div class="add-section">
+        <button class="new-storage-btn">New +</button>
+      </div>
+
+    </main>
+
+    <nav class="bottom-nav">
+      <a class="active" href="index.html" aria-current="page">Inventory</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="mealplan.html">Meal Plan</a>
+      <a href="shopping.html">Shopping</a>
+    </nav>
+
+  </div>
+
+  <script src="inventory.js"></script>
+</body>
+</html>
