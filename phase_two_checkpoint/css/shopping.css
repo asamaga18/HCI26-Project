@@ -4,74 +4,90 @@
 /* ---------- Header ---------- */
 .shop-header {
     padding: 20px 24px 12px 24px;
-    border-bottom: 2px solid #dddddd;
+    border-bottom: 2px solid var(--accent);
   }
   
   .shop-header h1 {
     margin: 0;
     font-size: var(--header-size);
-    font-weight: normal;
+    font-weight: 400;
   }
   
-  .shop-summary {
+  .shop-header p {
     margin: 4px 0 0 0;
     color: var(--background-subtext);
   }
   
   /* ---------- Main area ---------- */
   .shop-main {
-    padding: 12px 24px 16px 24px;
+    padding: 8px 24px 16px 24px;
   }
   
   /* ---------- Groups (one per recipe) ---------- */
   .shop-group {
-    margin-bottom: 12px;
+    margin-top: 16px;
   }
   
   .shop-group h2 {
-    margin: 0 0 6px 0;
+    margin: 0 0 4px 0;
     font-size: var(--subheader-size);
-    font-weight: 500;            /* Medium */
+    font-weight: 500;
+    color: var(--accent);
   }
   
   .shop-list {
-    list-style: none;            /* removes the bullet dots */
+    list-style: none;
     margin: 0;
     padding: 0;
   }
   
   /* ---------- Each item row ---------- */
   .shop-item {
-    display: flex;               /* checkbox and text side by side */
+    display: flex;
     align-items: center;
-    padding: 10px 12px;
-    margin-bottom: 6px;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    background-color: #ffffff;
+    padding: 10px 0;
+    border-bottom: 1px solid #cccccc;
   }
   
   .shop-item input {
-    width: 28px;                 /* big enough to tap */
-    height: 28px;
-    margin-right: 16px;
+    width: 26px;
+    height: 26px;
+    margin: 0 14px 0 0;
     accent-color: var(--accent);
   }
   
   .shop-item label {
+    flex: 1;
     display: flex;
-    flex-direction: column;      /* name on top, note underneath */
+    flex-direction: column;
   }
   
   .item-name {
-    font-weight: bold;
+    font-weight: 500;
   }
   
   .item-note {
     color: var(--background-subtext);
   }
   
-  /* for items where you are short on something */
-  .item-note.short {
+  .item-qty {
+    margin-left: 12px;
+  }
+  
+  /* items where you are short on something */
+  .item-qty.short {
     color: var(--warning-text);
+    font-weight: 500;
+  }
+  
+  /* ---------- Checked-off items ---------- */
+  .shop-item input:checked + label .item-name {
+    text-decoration: line-through;
+    color: var(--background-subtext);
+  }
+  
+  /* ---------- Footer with the add button ---------- */
+  .shop-footer {
+    padding: 12px 24px;
+    border-top: 1px solid #cccccc;
   }

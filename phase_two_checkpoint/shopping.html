@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <title>Kitchen Kompanion - Shopping List</title>
 
-  <!-- Shared by every screen -->
-  <link rel="stylesheet" href="global.css">
-  <!-- Only this screen -->
-  <link rel="stylesheet" href="shopping.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/shopping.css">
 </head>
 <body>
 
@@ -15,7 +13,7 @@
 
     <header class="shop-header">
       <h1>Shopping List</h1>
-      <p class="shop-summary">5 items to buy</p>
+      <p id="summary">5 items to buy</p>
     </header>
 
     <main class="shop-main">
@@ -27,15 +25,16 @@
             <input type="checkbox" id="item1">
             <label for="item1">
               <span class="item-name">Eggs</span>
-              <span class="item-note short">2 needed (you have 2 of 4)</span>
+              <span class="item-note">you have 2 of 4</span>
             </label>
+            <span class="item-qty short">2 needed</span>
           </li>
           <li class="shop-item">
             <input type="checkbox" id="item2">
             <label for="item2">
               <span class="item-name">Baby spinach</span>
-              <span class="item-note">1 bag</span>
             </label>
+            <span class="item-qty">1 bag</span>
           </li>
         </ul>
       </section>
@@ -47,15 +46,15 @@
             <input type="checkbox" id="item3">
             <label for="item3">
               <span class="item-name">Soy sauce</span>
-              <span class="item-note">1 bottle</span>
             </label>
+            <span class="item-qty">1 bottle</span>
           </li>
           <li class="shop-item">
             <input type="checkbox" id="item4">
             <label for="item4">
               <span class="item-name">Frozen peas</span>
-              <span class="item-note">1 lb</span>
             </label>
+            <span class="item-qty">1 lb</span>
           </li>
         </ul>
       </section>
@@ -67,21 +66,21 @@
             <input type="checkbox" id="item5">
             <label for="item5">
               <span class="item-name">Olive oil</span>
-              <span class="item-note">1 bottle, extra virgin</span>
+              <span class="item-note">extra virgin</span>
             </label>
+            <span class="item-qty">1 bottle</span>
           </li>
         </ul>
       </section>
 
-      <!-- "Add item" task is not built yet -->
+    </main>
+
+    <div class="shop-footer">
       <button class="primary-button" onclick="alert('Under development')">
         + Add item
       </button>
+    </div>
 
-    </main>
-
-    <!-- Bottom navigation: copy this exact block onto every page.
-         Only change which link has class="active". -->
     <nav class="bottom-nav">
       <a href="index.html">Inventory</a>
       <a href="recipes.html">Recipes</a>
@@ -91,5 +90,6 @@
 
   </div>
 
+  <script src="shopping.js"></script>
 </body>
 </html>
