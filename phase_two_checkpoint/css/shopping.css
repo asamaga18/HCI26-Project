@@ -1,0 +1,77 @@
+/* shopping.css - styles used only on the Shopping List screen.
+   Colors and sizes come from the variables in global.css. */
+
+/* ---------- Header ---------- */
+.shop-header {
+    padding: 20px 24px 12px 24px;
+    border-bottom: 2px solid #dddddd;
+  }
+  
+  .shop-header h1 {
+    margin: 0;
+    font-size: var(--header-size);
+    font-weight: normal;
+  }
+  
+  .shop-summary {
+    margin: 4px 0 0 0;
+    color: var(--background-subtext);
+  }
+  
+  /* ---------- Main area ---------- */
+  .shop-main {
+    padding: 12px 24px 16px 24px;
+  }
+  
+  /* ---------- Groups (one per recipe) ---------- */
+  .shop-group {
+    margin-bottom: 12px;
+  }
+  
+  .shop-group h2 {
+    margin: 0 0 6px 0;
+    font-size: var(--subheader-size);
+    font-weight: 500;            /* Medium */
+  }
+  
+  .shop-list {
+    list-style: none;            /* removes the bullet dots */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ---------- Each item row ---------- */
+  .shop-item {
+    display: flex;               /* checkbox and text side by side */
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  .shop-item input {
+    width: 28px;                 /* big enough to tap */
+    height: 28px;
+    margin-right: 16px;
+    accent-color: var(--accent);
+  }
+  
+  .shop-item label {
+    display: flex;
+    flex-direction: column;      /* name on top, note underneath */
+  }
+  
+  .item-name {
+    font-weight: bold;
+  }
+  
+  .item-note {
+    color: var(--background-subtext);
+  }
+  
+  /* for items where you are short on something */
+  .item-note.short {
+    color: var(--warning-text);
+  }
