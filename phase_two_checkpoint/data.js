@@ -1,4 +1,3 @@
-x
 const inventory = [
   { id: 1, name: "Greek yogurt", storage: "Fridge", qty: "0 tubs", status: "no-stock" },
   { id: 2, name: "Spinach", storage: "Fridge", qty: "1 bag", status: "expiring", note: "Expires tomorrow" },
