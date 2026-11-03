@@ -10,124 +10,51 @@
 <body>
     <div class="app planner-screen">
         <main>
-            <header class="planner-header">
+
+            <div class="planner-header">
                 <p class="eyebrow">KITCHEN KOMPANION</p>
                 <h1>Meal Planner</h1>
-            </header>
+            </div>
 
-            <section class="week-selector" aria-labelledby="week-heading">
-                <button class="week-arrow" type="button" aria-label="Previous week">
-                    <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="m15 18-6-6 6-6"></path>
-                    </svg>
-                </button>
-                <div>
+
+            <div class="week-selector">
+                <button class="week-arrow" type="button">&lt;</button>
+                <div class="week-text">
                     <p class="week-label">CURRENT WEEK</p>
-                    <h2 id="week-heading">Oct 5 <span>&ndash;</span> Oct 11</h2>
+                    <h2>Oct 5 - Oct 11</h2>
                 </div>
-                <button class="week-arrow" type="button" aria-label="Next week">
-                    <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="m9 18 6-6-6-6"></path>
-                    </svg>
-                </button>
-            </section>
+                <button class="week-arrow" type="button">&gt;</button>
+            </div>
 
-            <section class="meal-section" aria-labelledby="meals-heading">
+
+            <div class="meal-section">
                 <div class="section-heading">
-                    <h2 id="meals-heading">This week</h2>
+                    <h2>This week</h2>
                     <span>7 days</span>
                 </div>
-                <ol class="meal-list">
-                    <li class="meal-row">
-                        <div class="date">
-                            <span>MON</span>
-                            <time datetime="2026-10-05">5</time>
-                        </div>
-                        <div class="meal-details">
-                            <h3>Vegetable Stir Fry</h3>
-                            <p>25 min <span>&middot;</span> Beginner</p>
-                        </div>
-                        <span class="status ready">Ready</span>
-                    </li>
-                    <li class="meal-row">
-                        <div class="date">
-                            <span>TUE</span>
-                            <time datetime="2026-10-06">6</time>
-                        </div>
-                        <div class="meal-details">
-                            <h3>Tacos</h3>
-                            <p>30 min <span>&middot;</span> Beginner</p>
-                        </div>
-                        <span class="status to-buy">Buy 3</span>
-                    </li>
-                    <li class="meal-row">
-                        <div class="date">
-                            <span>WED</span>
-                            <time datetime="2026-10-07">7</time>
-                        </div>
-                        <div class="meal-details">
-                            <h3>Pasta Primavera</h3>
-                            <p class="expiring">Uses spinach <span>&middot;</span> expires in 2 days</p>
-                        </div>
-                        <span class="status ready">Ready</span>
-                    </li>
-                    <li class="meal-row empty">
-                        <div class="date">
-                            <span>THU</span>
-                            <time datetime="2026-10-08">8</time>
-                        </div>
-                        <div class="empty-meal">
-                            <span class="plus">+</span>
-                            <span>Add a meal</span>
-                        </div>
-                    </li>
-                    <li class="meal-row">
-                        <div class="date">
-                            <span>FRI</span>
-                            <time datetime="2026-10-09">9</time>
-                        </div>
-                        <div class="meal-details">
-                            <h3>Lentil Soup</h3>
-                            <p>40 min <span>&middot;</span> Beginner</p>
-                        </div>
-                        <span class="status to-buy">Buy 2</span>
-                    </li>
-                    <li class="meal-row">
-                        <div class="date">
-                            <span>SAT</span>
-                            <time datetime="2026-10-10">10</time>
-                        </div>
-                        <div class="meal-details">
-                            <h3>Veggie Chili</h3>
-                            <p>45 min <span>&middot;</span> Intermediate</p>
-                        </div>
-                        <span class="status to-buy">Buy 1</span>
-                    </li>
-                    <li class="meal-row empty">
-                        <div class="date">
-                            <span>SUN</span>
-                            <time datetime="2026-10-11">11</time>
-                        </div>
-                        <div class="empty-meal">
-                            <span class="plus">+</span>
-                            <span>Add a meal</span>
-                        </div>
-                    </li>
-                </ol>
-            </section>
+
+                <div class="meal-list" id="mealList">
+                    <!-- rows get added here by meal_planner.js -->
+                </div>
+
+                <button type="button" id="generateBtn" class="primary-button" onclick="generateShoppingList()">
+                    Generate Shopping List
+                </button>
+            </div>
+
         </main>
 
-        <nav class="bottom-nav" aria-label="Primary navigation">
-            <a href="#inventory">
-                <span>Inventory</span>
-            </a>
-            <a href="#recipes">
-                <span>Recipes</span>
-            </a>
-            <a class="active" href="#planner" aria-current="page">
-                <span>Planner</span>
-            </a>
+
+        <nav class="bottom-nav">
+            <a href="index.html">Inventory</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="meal_planner.html" class="active">Planner</a>
         </nav>
+
     </div>
+
+
+    <script src="data.js"></script>
+    <script src="meal_planner.js"></script>
 </body>
 </html>
