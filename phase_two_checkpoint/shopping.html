@@ -16,11 +16,14 @@
         </header>
 
         <main class="shop-main">
-            <p id="shopping-empty" class="shopping-empty" hidden>
-                Your shopping list is empty. Add missing ingredients from a recipe.
-            </p>
-            <div id="shopping-groups"></div>
+            <div id="message" class="message" hidden></div>
+            <div id="list-area"></div>
         </main>
+
+        <div class="shop-footer">
+            <button class="secondary-button" type="button" onclick="goToAddItem()">+ Add item</button>
+            <button class="primary-button" id="move-button" type="button" onclick="goToBought()">Move to inventory (0)</button>
+        </div>
 
         <nav class="bottom-nav" aria-label="Main navigation">
             <a href="index.html">Inventory</a>
@@ -30,6 +33,7 @@
         </nav>
     </div>
 
-    <script src="./js/shopping.js"></script>
+    <script src="./data.js"></script>
+    <script src="./shopping.js"></script>
 </body>
 </html>

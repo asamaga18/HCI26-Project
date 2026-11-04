@@ -1,8 +1,7 @@
 const FAVORITES_KEY = "kitchenKompanionFavorites";
 const DINERS_KEY = "kitchenKompanionDiners";
-const SHOPPING_KEY = "kitchenKompanionShoppingList";
 
-const recipes = [
+const recipeCatalog = [
     {
         id: "spinach-omelet",
         name: "Spinach Omelet",
@@ -91,10 +90,6 @@ let availability = "ready";
 const activeFilters = new Set();
 let favoriteIds = JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]");
 
-function getShoppingList() {
-    return JSON.parse(localStorage.getItem(SHOPPING_KEY) || "[]");
-}
-
 function isSuitableForDiners(recipe, dinerIds) {
     return dinerIds.every((id) => {
         const diner = dinerProfiles[id];
@@ -110,8 +105,7 @@ function renderRecipes() {
         input.checked = dinerIds.includes(input.value);
     });
 
-    const shoppingList = getShoppingList();
-    const visibleRecipes = recipes.filter((recipe) => {
+    const visibleRecipes = recipeCatalog.filter((recipe) => {
         const needsShopping = recipe.missing.length > 0;
         if ((availability === "ready" && needsShopping) || (availability === "shopping" && !needsShopping)) return false;
         if (!isSuitableForDiners(recipe, dinerIds)) return false;
@@ -167,14 +161,12 @@ function renderRecipes() {
 
         if (recipe.missing.length > 0) {
             const button = document.createElement("button");
-            const allAdded = recipe.missing.every((item) =>
-                shoppingList.some((entry) => entry.id === `${recipe.id}:${item.id}`)
-            );
+            const allAdded = recipe.missing.every((item) => findShoppingItem(item.name) !== null);
             button.className = "add-ingredients";
             button.type = "button";
             button.dataset.addRecipe = recipe.id;
             button.disabled = allAdded;
-            button.textContent = allAdded ? "Added to list" : "Add missing to list";
+            button.textContent = allAdded ? "Already on list" : "Add missing to list";
             actions.append(button);
         } else {
             const status = document.createElement("span");
@@ -238,23 +230,14 @@ recipeList.addEventListener("click", (event) => {
         return;
     }
 
-    const recipe = recipes.find((item) => item.id === button.dataset.addRecipe);
+    const recipe = recipeCatalog.find((item) => item.id === button.dataset.addRecipe);
     if (!recipe) return;
-    const shoppingList = getShoppingList();
     recipe.missing.forEach((item) => {
-        const id = `${recipe.id}:${item.id}`;
-        if (!shoppingList.some((entry) => entry.id === id)) {
-            shoppingList.push({
-                id,
-                recipeId: recipe.id,
-                recipeName: recipe.name,
-                name: item.name,
-                quantity: item.quantity,
-                checked: false
-            });
-        }
+        addToShoppingList(`For ${recipe.name}`, {
+            name: item.name,
+            qty: item.quantity
+        });
     });
-    localStorage.setItem(SHOPPING_KEY, JSON.stringify(shoppingList));
     renderRecipes();
 });
 
