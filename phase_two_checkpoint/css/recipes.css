@@ -387,36 +387,9 @@ body {
     background: #dedede;
 }
 
-.recipes-screen {
-    width: 100%;
-    max-width: 640px;
-    height: 844px;
-    min-height: 0;
-
-    display: flex;
-    flex-direction: column;
-
-    margin: 20px auto;
-    background: var(--background);
-    overflow: hidden;
-    box-shadow: 0 0 0 1px #ccc;
-}
-
 .recipes-screen main {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
     padding: 0 24px;
-}
-
-/* Actual phone screens */
-
-@media (max-width: 390px) {
-    .recipes-screen {
-        width: 100%;
-        max-width: none;
-        height: 100dvh;
-        margin: 0;
-        box-shadow: none;
-    }
 }
