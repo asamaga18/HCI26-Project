@@ -61,30 +61,38 @@ body {
 
 /* NEW: bottom navigation bar, same on every page */
 .bottom-nav {
-    display: flex;
-    background: var(--accent);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    min-height: 74px;
+    flex-shrink: 0;
+    border-top: 1px solid #ccc;
+    background: var(--background);
 }
 
 .bottom-nav a {
-    flex: 1;                        /* four equal-width tabs */
-    padding: 22px 0;
+    display: flex;
+    min-height: 74px;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 4px;
+    border: 0;
+    color: var(--background-subtext);
     text-align: center;
-    font-size: var(--body-size);
-    color: var(--accent-text);
+    font-size: 13px;
     text-decoration: none;
-    border-top: 4px solid transparent;
 }
 
 /* the tab for the page you are on */
 .bottom-nav a.active {
-    background: rgba(255, 255, 255, 0.2);
-    border-top: 4px solid var(--accent-text);
+    border-top: 0;
+    color: var(--background-text);
+    background: transparent;
     font-weight: bold;
 }
 
 .bottom-nav a:focus-visible {
-    outline: 3px solid var(--accent-text);
-    outline-offset: -6px;
+    outline: 3px solid #6d9d8e;
+    outline-offset: -3px;
 }
 
 /* NEW: main green button, use on any page */

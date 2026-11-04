@@ -267,11 +267,6 @@
   margin-bottom: 0;
 }
 
-.bottom-nav a {
-  padding: 16px 4px;
-  font-size: 13px;
-}
-
 @media (max-width: 640px) {
   .app {
     max-height: none;
