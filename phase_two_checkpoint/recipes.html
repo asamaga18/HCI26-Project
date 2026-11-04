@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,132 +12,68 @@
 <body>
     <div class="recipes-screen">
         <main>
-            <!-- Header -->
             <header class="recipes-header">
                 <p class="eyebrow">KITCHEN KOMPANION</p>
                 <h1>Recipes</h1>
             </header>
 
-            <!-- Recipe Controls -->
-            <section class="recipe-controls">
-                <div class="recipe-tabs">
-                    <button class="recipe-tab active" type="button">
+            <section class="recipe-controls" aria-label="Recipe filters">
+                <div class="recipe-tabs" role="group" aria-label="Ingredient availability">
+                    <button class="recipe-tab active" type="button" data-availability="ready" aria-pressed="true">
                         Ready to Cook
                     </button>
-                    <button class="recipe-tab" type="button">
+                    <button class="recipe-tab" type="button" data-availability="shopping" aria-pressed="false">
                         Requires Shopping
                     </button>
                 </div>
 
-                <div class="recipe-filters">
-                    <button class="recipe-filter active" type="button">
+                <fieldset class="diner-picker">
+                    <legend>Who's eating?</legend>
+                    <label class="diner-option">
+                        <input type="checkbox" name="diner" value="bob" checked>
+                        <span><strong>Bob</strong><small>Vegan · Peanut allergy</small></span>
+                    </label>
+                    <label class="diner-option">
+                        <input type="checkbox" name="diner" value="alex">
+                        <span><strong>Alex</strong><small>No dietary restrictions</small></span>
+                    </label>
+                    <p class="diner-hint">Recipes that don't fit everyone's needs are hidden.</p>
+                </fieldset>
+
+                <div class="recipe-filters" aria-label="Additional filters">
+                    <button class="recipe-filter" type="button" data-filter="expiring" aria-pressed="false">
                         Use expiring food
                     </button>
-                    <button class="recipe-filter" type="button">
+                    <button class="recipe-filter" type="button" data-filter="quick" aria-pressed="false">
                         Under 30 min
                     </button>
-                    <button class="recipe-filter" type="button">
+                    <button class="recipe-filter" type="button" data-filter="beginner" aria-pressed="false">
                         Beginner
+                    </button>
+                    <button class="recipe-filter" type="button" data-filter="favorites" aria-pressed="false">
+                        Favorites
                     </button>
                 </div>
             </section>
 
-            <!-- Recipes Section -->
-            <section class="recipe-section">
+            <section class="recipe-section" aria-labelledby="recipe-heading">
                 <div class="recipe-section-heading">
-                    <h2>Ready to cook</h2>
-                    <span>3 recipes</span>
+                    <h2 id="recipe-heading">Ready to cook</h2>
+                    <span id="recipe-count" aria-live="polite"></span>
                 </div>
-
-                <ul class="recipe-list">
-
-                    <!-- Spinach Omelet -->
-                    <li class="recipe-row">
-                        <div class="recipe-details">
-                            <h3>Spinach Omelet</h3>
-                            <p>
-                                15 min <span>·</span>
-                                Beginner <span>·</span>
-                                Serves 2
-                            </p>
-                            <p class="recipe-expiring">
-                                Uses spinach · expires in 2 days
-                            </p>
-                        </div>
-
-                        <div class="recipe-actions">
-                            <button
-                                class="favorite active"
-                                type="button"
-                                aria-label="Remove Spinach Omelet from favorites"
-                            >
-                                ♥
-                            </button>
-                            <span class="recipe-status ready">Ready</span>
-                        </div>
-                    </li>
-
-                    <!-- Pasta Primavera -->
-                    <li class="recipe-row">
-                        <div class="recipe-details">
-                            <h3>Pasta Primavera</h3>
-                            <p>
-                                30 min <span>·</span>
-                                Beginner <span>·</span>
-                                Serves 4
-                            </p>
-                            <p class="recipe-expiring">
-                                Uses spinach · expires in 2 days
-                            </p>
-                        </div>
-
-                        <div class="recipe-actions">
-                            <button
-                                class="favorite"
-                                type="button"
-                                aria-label="Add Pasta Primavera to favorites"
-                            >
-                                ♡
-                            </button>
-                            <span class="recipe-status ready">Ready</span>
-                        </div>
-                    </li>
-
-                    <!-- Veggie Stir Fry -->
-                    <li class="recipe-row">
-                        <div class="recipe-details">
-                            <h3>Veggie Stir Fry</h3>
-                            <p>
-                                25 min <span>·</span>
-                                Beginner <span>·</span>
-                                Serves 3
-                            </p>
-                        </div>
-
-                        <div class="recipe-actions">
-                            <button
-                                class="favorite"
-                                type="button"
-                                aria-label="Add Veggie Stir Fry to favorites"
-                            >
-                                ♡
-                            </button>
-                            <span class="recipe-status ready">Ready</span>
-                        </div>
-                    </li>
-
-                </ul>
+                <p id="recipe-empty" class="recipe-empty" hidden>No recipes match these filters.</p>
+                <ul class="recipe-list" id="recipe-list" aria-live="polite"></ul>
             </section>
         </main>
 
-        <!-- Bottom Navigation -->
         <nav class="bottom-nav" aria-label="Main navigation">
-            <a href="inventory.html">Inventory</a>
-            <a href="recipes.html" class="active" aria-current="page">
-                Recipes
-            </a>
-            <a href="planner.html">Planner</a>
+            <a href="index.html">Inventory</a>
+            <a href="recipes.html" class="active" aria-current="page">Recipes</a>
+            <a href="meal_planner.html">Planner</a>
+            <a href="shopping.html">Shopping</a>
         </nav>
     </div>
+
+    <script src="./js/recipes.js"></script>
 </body>
 </html>

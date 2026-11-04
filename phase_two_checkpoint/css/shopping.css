@@ -91,3 +91,41 @@
     padding: 12px 24px;
     border-top: 1px solid #cccccc;
   }
+
+  .app {
+    width: 100%;
+    max-width: 640px;
+    height: 100dvh;
+    max-height: 960px;
+  }
+
+  .shop-header {
+    flex-shrink: 0;
+  }
+
+  .shop-main {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .shopping-empty {
+    padding: 28px 8px;
+    color: var(--background-subtext);
+    text-align: center;
+  }
+
+  .shop-item input:focus-visible {
+    outline: 3px solid #6d9d8e;
+    outline-offset: 2px;
+  }
+
+  .bottom-nav a {
+    padding: 16px 4px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 640px) {
+    .app {
+      max-height: none;
+    }
+  }
