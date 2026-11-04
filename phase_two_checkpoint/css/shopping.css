@@ -1,93 +1,269 @@
-/* shopping.css - styles used only on the Shopping List screen.
+/* shopping.css - styles for the three Shopping screens
+   (shopping.html, additem.html, bought.html).
    Colors and sizes come from the variables in global.css. */
+
+/* lets the keyboard picture sit at the bottom of the phone screen */
+.app {
+  position: relative;
+}
 
 /* ---------- Header ---------- */
 .shop-header {
-    padding: 20px 24px 12px 24px;
-    border-bottom: 2px solid var(--accent);
-  }
-  
-  .shop-header h1 {
-    margin: 0;
-    font-size: var(--header-size);
-    font-weight: 400;
-  }
-  
-  .shop-header p {
-    margin: 4px 0 0 0;
-    color: var(--background-subtext);
-  }
-  
-  /* ---------- Main area ---------- */
-  .shop-main {
-    padding: 8px 24px 16px 24px;
-  }
-  
-  /* ---------- Groups (one per recipe) ---------- */
-  .shop-group {
-    margin-top: 16px;
-  }
-  
-  .shop-group h2 {
-    margin: 0 0 4px 0;
-    font-size: var(--subheader-size);
-    font-weight: 500;
-    color: var(--accent);
-  }
-  
-  .shop-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* ---------- Each item row ---------- */
-  .shop-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #cccccc;
-  }
-  
-  .shop-item input {
-    width: 26px;
-    height: 26px;
-    margin: 0 14px 0 0;
-    accent-color: var(--accent);
-  }
-  
-  .shop-item label {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .item-name {
-    font-weight: 500;
-  }
-  
-  .item-note {
-    color: var(--background-subtext);
-  }
-  
-  .item-qty {
-    margin-left: 12px;
-  }
-  
-  /* items where you are short on something */
-  .item-qty.short {
-    color: var(--warning-text);
-    font-weight: 500;
-  }
-  
-  /* ---------- Checked-off items ---------- */
-  .shop-item input:checked + label .item-name {
-    text-decoration: line-through;
-    color: var(--background-subtext);
-  }
-  
-  /* ---------- Footer with the add button ---------- */
-  .shop-footer {
-    padding: 12px 24px;
-    border-top: 1px solid #cccccc;
-  }
+  padding: 20px 24px 12px 24px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.shop-header h1 {
+  margin: 0;
+  font-size: var(--header-size);
+  font-weight: 400;
+}
+
+.shop-header p {
+  margin: 4px 0 0 0;
+  color: var(--background-subtext);
+}
+
+/* ---------- Main area ---------- */
+.shop-main {
+  padding: 8px 24px 16px 24px;
+}
+
+/* ---------- Message box (success or help) ---------- */
+.message {
+  margin: 12px 0 0 0;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+}
+
+.message.warning {
+  border-color: var(--warning-text);
+  color: var(--warning-text);
+}
+
+.message[hidden] {
+  display: none;
+}
+
+/* ---------- Groups (one per recipe) ---------- */
+.shop-group {
+  margin-top: 16px;
+}
+
+.shop-group h2 {
+  margin: 0 0 4px 0;
+  font-size: var(--subheader-size);
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.shop-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Each item row ---------- */
+.shop-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.shop-item input {
+  width: 26px;
+  height: 26px;
+  margin: 0 14px 0 0;
+  accent-color: var(--accent);
+}
+
+.shop-item label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-note {
+  color: var(--background-subtext);
+}
+
+.item-qty {
+  margin-left: 12px;
+}
+
+/* items where you are short on something */
+.item-qty.short {
+  color: var(--warning-text);
+  font-weight: 500;
+}
+
+/* checked-off items */
+.shop-item input:checked + label .item-name {
+  text-decoration: line-through;
+  color: var(--background-subtext);
+}
+
+.empty-text {
+  margin: 24px 0;
+  color: var(--background-subtext);
+}
+
+/* ---------- Buttons ---------- */
+.secondary-button {
+  padding: 16px;
+  font-family: inherit;
+  font-size: var(--body-size);
+  font-weight: 500;
+  color: var(--accent);
+  background: #ffffff;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+}
+
+.link-button {
+  margin-top: 16px;
+  padding: 12px 0;
+  font-family: inherit;
+  font-size: var(--body-size);
+  color: var(--accent);
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+/* ---------- Footer with the buttons ---------- */
+.shop-footer {
+  display: flex;
+  gap: 12px;
+  padding: 12px 24px;
+  border-top: 1px solid #cccccc;
+}
+
+.shop-footer button,
+.form-buttons button {
+  flex: 1;
+  width: auto;
+}
+
+/* ---------- Add item form ---------- */
+.form-main {
+  padding: 16px 24px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 52px;
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: var(--body-size);
+  color: var(--background-text);
+  background: #ffffff;
+  border: 2px solid var(--background-subtext);
+  border-radius: 8px;
+}
+
+.field input::placeholder {
+  color: var(--background-subtext);
+}
+
+/* a text box with a mistake in it */
+.field input.has-error {
+  border-color: var(--warning-text);
+}
+
+.error-text {
+  margin: 4px 0 0 0;
+  color: var(--warning-text);
+}
+
+.error-text:empty {
+  display: none;
+}
+
+.field-row {
+  display: flex;
+  gap: 16px;
+}
+
+.field-row .field {
+  flex: 1;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ---------- On-screen keyboard picture ---------- */
+.keyboard {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background);
+}
+
+.keyboard-bar {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #cccccc;
+}
+
+.keyboard-bar button {
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: var(--body-size);
+  font-weight: 500;
+  color: var(--accent);
+  background: none;
+  border: none;
+}
+
+.keyboard img {
+  display: block;
+  width: 100%;
+}
+
+/* ---------- Move to inventory screen ---------- */
+.bought-item {
+  padding: 14px 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.bought-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.bought-choices {
+  display: flex;
+  gap: 16px;
+}
+
+.bought-choices .field {
+  flex: 1;
+  margin-bottom: 0;
+}

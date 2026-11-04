@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Kompanion - Move to Inventory</title>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/shopping.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="shop-header">
+      <h1>Move to Inventory</h1>
+      <p id="summary">Choose where each item goes</p>
+    </header>
+
+    <main class="shop-main">
+      <!-- Filled in by js/bought.js -->
+      <div id="bought-area"></div>
+    </main>
+
+    <div class="shop-footer">
+      <button class="secondary-button" onclick="goBack()">Cancel</button>
+      <button class="primary-button" id="confirm-button" onclick="confirmAdd()">Add to inventory</button>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html">Inventory</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="mealplan.html">Meal Plan</a>
+      <a href="shopping.html" class="active" aria-current="page">Shopping</a>
+    </nav>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/bought.js"></script>
+</body>
+</html>

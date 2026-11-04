@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Kompanion - Add Item</title>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/shopping.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="shop-header">
+      <h1>Add Item</h1>
+      <p>Add something to your shopping list</p>
+    </header>
+
+    <main class="form-main">
+
+      <div class="field">
+        <label for="name-input">Item name</label>
+        <input type="text" id="name-input" placeholder="e.g. Butter">
+        <p class="error-text" id="name-error"></p>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="quantity-input">Quantity</label>
+          <input type="number" id="quantity-input" value="1" min="1">
+          <p class="error-text" id="quantity-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="unit-select">Unit</label>
+          <select id="unit-select">
+            <option value="item">item</option>
+            <option value="bottle">bottle</option>
+            <option value="bag">bag</option>
+            <option value="box">box</option>
+            <option value="can">can</option>
+            <option value="lb">lb</option>
+            <option value="oz">oz</option>
+            <option value="gallon">gallon</option>
+            <option value="dozen">dozen</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="note-input">Note (optional)</label>
+        <input type="text" id="note-input" placeholder="e.g. unsalted">
+      </div>
+
+      <div class="form-buttons">
+        <button class="secondary-button" onclick="goBack()">Cancel</button>
+        <button class="primary-button" onclick="saveItem()">Add to list</button>
+      </div>
+
+    </main>
+
+    <!-- Picture of the on-screen keyboard. It slides up when you tap a text box. -->
+    <div class="keyboard" id="keyboard">
+      <div class="keyboard-bar">
+        <button onclick="hideKeyboard()">Done</button>
+      </div>
+      <img src="images/keyboard.png" alt="On-screen keyboard">
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html">Inventory</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="mealplan.html">Meal Plan</a>
+      <a href="shopping.html" class="active" aria-current="page">Shopping</a>
+    </nav>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/additem.js"></script>
+</body>
+</html>
