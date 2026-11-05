@@ -1,6 +1,6 @@
 // data.js - sample data shared by every screen, plus helpers for saving it.
 // Load this file BEFORE any other script on a page:
-//   <script src="js/data.js"></script>
+//   <script src="data.js"></script>
 
 // ---------- Saving and loading (uses the browser's localStorage) ----------
 
@@ -59,9 +59,18 @@ function resetSampleData() {
     localStorage.removeItem("kk_inventory");
     localStorage.removeItem("kk_shoppingList");
     localStorage.removeItem("kk_message");
+    localStorage.removeItem("kitchenKompanionFavorites");   // Dhruv's saved hearts
+    localStorage.removeItem("kitchenKompanionDiners");      // Dhruv's "Who's eating" choice
   } catch (error) {
   }
   window.location.reload();
+}
+
+
+// For buttons that are not built yet. Use it like this:
+//   <button onclick="underDevelopment()">Edit</button>
+function underDevelopment() {
+  alert("Under development");
 }
 
 

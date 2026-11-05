@@ -53,6 +53,25 @@ function updateSummary() {
   }
 
   moveButton.textContent = "Move to inventory (" + checked + ")";
+
+  // the count on the right of each group heading ("2 to buy")
+  for (var g = 0; g < shoppingList.length; g++) {
+    var countText = document.getElementById("count" + g);
+    if (countText === null) {
+      continue;
+    }
+    var groupLeft = 0;
+    for (var i = 0; i < shoppingList[g].items.length; i++) {
+      if (!shoppingList[g].items[i].checked) {
+        groupLeft = groupLeft + 1;
+      }
+    }
+    if (groupLeft === 0) {
+      countText.textContent = "Done";
+    } else {
+      countText.textContent = groupLeft + " to buy";
+    }
+  }
 }
 
 // ---------- Drawing the list ----------
@@ -66,7 +85,7 @@ function showList() {
     }
 
     html += '<section class="shop-group">';
-    html += '<h2>' + escapeText(group.group) + '</h2>';
+    html += '<div class="section-heading"><h2>' + escapeText(group.group) + '</h2><span id="count' + g + '"></span></div>';
     html += '<ul class="shop-list">';
 
     for (var i = 0; i < group.items.length; i++) {

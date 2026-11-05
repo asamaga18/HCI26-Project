@@ -1,5 +1,5 @@
-// additem.js - the Add Item form.
-// Needs js/data.js to be loaded first.
+// AddItem.js - the Add Item form.
+// Needs data.js to be loaded first.
 
 var nameInput = document.getElementById("name-input");
 var quantityInput = document.getElementById("quantity-input");
@@ -7,21 +7,6 @@ var unitSelect = document.getElementById("unit-select");
 var noteInput = document.getElementById("note-input");
 var nameError = document.getElementById("name-error");
 var quantityError = document.getElementById("quantity-error");
-var keyboard = document.getElementById("keyboard");
-
-// ---------- Keyboard picture ----------
-function showKeyboard() {
-  keyboard.style.display = "block";
-}
-
-function hideKeyboard() {
-  keyboard.style.display = "none";
-}
-
-// show the keyboard when a text box is tapped
-nameInput.addEventListener("focus", showKeyboard);
-quantityInput.addEventListener("focus", showKeyboard);
-noteInput.addEventListener("focus", showKeyboard);
 
 // ---------- Error messages ----------
 function clearErrors() {
@@ -43,7 +28,11 @@ function makeQtyText(quantity, unit) {
     needsS = false;
   }
   if (needsS) {
-    unit = unit + "s";
+    if (unit === "box") {
+      unit = "boxes";      // box -> boxes
+    } else {
+      unit = unit + "s";   // bottle -> bottles
+    }
   }
   return quantity + " " + unit;
 }
