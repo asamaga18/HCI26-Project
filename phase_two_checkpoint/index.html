@@ -1,105 +1,101 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Kitchen Kompanion - Inventory</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Kompanion - Inventory</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
 
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/index.css">
-</head>
 <body>
-
-  <div class="app">
-
-    <header class="inventory-header">
-      <p class="eyebrow">KITCHEN KOMPANION</p>
-      <h1>My Kitchen</h1>
-      <div class="search-bar">
-        <input type="text" placeholder="Search inventory">
-        <button class="add-button" aria-label="Add inventory item">+</button>
-      </div>
-    </header>
+  <div class="app inventory-screen">
 
     <main class="inventory-main">
+      <header class="inventory-header">
+        <p class="eyebrow">KITCHEN KOMPANION</p>
+        <h1>Inventory</h1>
+      </header>
 
-      <!-- Fridge Section (Expanded) -->
-      <section class="storage-group expanded">
-        <div class="storage-header">
-          <h2>Fridge</h2>
-          <div class="storage-actions">
-            <button class="edit-btn" aria-label="Edit Fridge items">Edit</button>
-          </div>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="inventory-search"
+          placeholder="Search your inventory"
+          aria-label="Search your inventory"
+        >
+
+        <button
+          class="add-button"
+          type="button"
+          onclick="window.location.href='AddItem.html'"
+          aria-label="Add inventory item"
+        >+</button>
+      </div>
+
+      <section class="inventory-controls" aria-label="Recipe filters">
+
+        <div class="inventory-filters" aria-label="Additional filters">
+          <button class="inventory-filter" type="button" data-filter="expiring" aria-pressed="false">
+            Expiring soon
+          </button>
+          <button class="inventory-filter" type="button" data-filter="low" aria-pressed="false">
+            No stock
+          </button>
         </div>
 
-        <ul class="inventory-list">
-          <li class="inventory-item">
-            <div class="item-details">
-              <span class="item-name">Greek yogurt</span>
-              <span class="badge badge-danger">No stock</span>
-            </div>
-            <span class="item-qty">0 tubs</span>
-          </li>
+      </section>
 
-          <li class="inventory-item">
-            <div class="item-details">
-              <span class="item-name">Spinach</span>
-              <span class="badge badge-warning">Expires tomorrow</span>
-            </div>
-            <span class="item-qty">1 bag</span>
-          </li>
+      <!-- Fridge Section Bucket -->
+      <section class="inventory-section" id="fridge-section">
+        <div class="inventory-section-heading" onclick="toggleBucket('fridge-section')">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h2 class="toggle-arrow">Fridge ▾</h2>
+          </div>
+          <span id="fridge-count">0 items</span>
+        </div>
 
-          <li class="inventory-item">
-            <div class="item-details">
-              <span class="item-name">Milk</span>
-            </div>
-            <span class="item-qty">1 gallon</span>
-          </li>
-
-          <li class="inventory-item">
-            <div class="item-details">
-              <span class="item-name">Eggs</span>
-            </div>
-            <span class="item-qty">0.5 dozen</span>
-          </li>
+        <ul class="inventory-list" id="fridge-list">
+          <!-- Populated dynamically by inventory.js -->
         </ul>
       </section>
 
-      <!-- Pantry Section (Collapsed) -->
-      <section class="storage-group collapsed">
-        <div class="storage-header">
-          <h2>Pantry</h2>
-          <div class="storage-actions">
-            <button class="edit-btn" aria-label="Edit Pantry items">Edit</button>
+      <!-- Pantry Section Bucket -->
+      <section class="inventory-section" id="pantry-section">
+        <div class="inventory-section-heading" onclick="toggleBucket('pantry-section')">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h2 class="toggle-arrow">Pantry ▾</h2>
           </div>
+          <span id="pantry-count">0 items</span>
         </div>
+
+        <ul class="inventory-list" id="pantry-list"></ul>
       </section>
 
-      <!-- Freezer Section (Collapsed) -->
-      <section class="storage-group collapsed">
-        <div class="storage-header">
-          <h2>Freezer</h2>
-          <div class="storage-actions">
-            <button class="edit-btn" aria-label="Edit Freezer items">Edit</button>
+      <!-- Freezer Section Bucket -->
+      <section class="inventory-section" id="freezer-section">
+        <div class="inventory-section-heading" onclick="toggleBucket('freezer-section')">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h2 class="toggle-arrow">Freezer ▾</h2>
           </div>
+          <span id="freezer-count">0 items</span>
         </div>
-      </section>
 
-      <!-- Add New Section -->
-      <div class="add-section">
-        <button class="new-storage-btn">New +</button>
-      </div>
+        <ul class="inventory-list" id="freezer-list"></ul>
+      </section>
 
     </main>
 
-    <nav class="bottom-nav">
-      <a class="active" href="index.html" aria-current="page">Inventory</a>
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="index.html" class="active" aria-current="page">Inventory</a>
       <a href="recipes.html">Recipes</a>
       <a href="meal_planner.html">Planner</a>
       <a href="shopping.html">Shopping</a>
     </nav>
-
   </div>
 
-  <script src="inventory.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/inventory.js"></script>
 </body>
 </html>

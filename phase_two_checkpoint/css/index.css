@@ -1,107 +1,341 @@
- .inventory-header h1 {
-    margin-bottom: 12px;
-  }
-  
-  /* ---------- Search bar ---------- */
-  .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .search-bar input {
-    flex: 1;
-    height: 52px;
-    padding: 0 12px;
-    border: 2px solid var(--background-subtext);
-    border-radius: var(--radius);
-    color: var(--background-text);
-    background: #ffffff;
-  }
-  
-  .search-bar input::placeholder {
-    color: var(--background-subtext);
-  }
-  
-  .search-bar .add-button {
-    width: 52px;
-    height: 52px;
-    padding: 0;
-    border: 2px solid var(--accent);
-    border-radius: var(--radius);
-    color: var(--accent);
-    background: #ffffff;
-    font-size: 28px;
-    line-height: 1;
-    cursor: pointer;
-  }
-  
-  /* ---------- Main area ---------- */
-  .inventory-main {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 12px 24px 16px;
-  }
-  
-  .storage-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .storage-header {
-    min-height: 48px;
-  }
-  
-  .edit-btn {
-    min-height: 44px;
-    padding: 0 8px;
-    border: 0;
-    color: var(--accent);
-    background: none;
-    font-weight: 500;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  /* ---------- Inventory items ---------- */
-  .inventory-list {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .inventory-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .item-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  }
-  
-  .item-qty {
-    margin-left: 12px;
-  }
-  
-  /* ---------- "New +" button ---------- */
-  .add-section {
-    padding-top: 4px;
-  }
-  
-  .new-storage-btn {
-    width: 100%;
-    min-height: 56px;
-    border: 2px dashed var(--line-strong);
-    border-radius: var(--radius);
-    color: var(--background-subtext);
-    background: none;
-    font-weight: 500;
-    cursor: pointer;
-  }
+
+.inventory-screen {
+  --inventory-ink: var(--background-text);
+  --inventory-muted: var(--background-subtext);
+  --inventory-line: #aaa;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: var(--background-text);
+  background: var(--background);
+}
+
+.inventory-screen main {
+  flex: 1;
+  overflow: hidden;
+  padding: 0 24px;
+}
+
+/* Header */
+
+.inventory-header {
+  padding: 20px 0 12px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.inventory-header .eyebrow {
+  margin: 0 0 3px;
+  color: var(--inventory-muted);
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+.inventory-header h1 {
+  margin: 0;
+  color: var(--background-text);
+  font-size: var(--header-size);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 30px;
+  padding: 0px 0px 0px 20px;
+  margin-top: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--body-size);
+  color: #333333;
+  padding: 10px 10px 10px 0px;
+}
+
+.search-bar input::placeholder {
+  color: #777777;
+  padding: 10px 10px 10px 0px;
+}
+
+.search-bar .add-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 30px;
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border: 1px solid var(--accent);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.inventory-main {
+  padding: 0 16px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inventory-filter {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+/* Filters */
+
+.inventory-controls {
+  padding: 0px 0 12px;
+}
+
+.inventory-filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.inventory-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.inventory-filter {
+  flex-shrink: 0;
+  min-height: 32px;
+  padding: 5px 10px;
+  border: 1px solid #999;
+  border-radius: 15px;
+  color: var(--inventory-muted);
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 25%;
+}
+
+.inventory-filter.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+  font-weight: bold;
+}
+
+.inventory-filter:focus-visible {
+  outline: 3px solid #6d9d8e;
+  outline-offset: -3px;
+}
+
+/* Inventory section & headings */
+.inventory-section {
+  margin-bottom: 30px;
+}
+
+/* Clickable headers */
+.inventory-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Collapsed state */
+.inventory-section.collapsed .inventory-list {
+  display: none;
+}
+
+.inventory-section-heading h2 {
+  margin: 0;
+  color: var(--accent);
+  font-size: var(--subheader-size);
+  font-weight: 600;
+}
+
+.inventory-section-heading span {
+  color: var(--inventory-muted);
+  font-size: var(--subheader-size);
+}
+
+/* Inventory list rows */
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recipe-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start; /* Aligns both columns to the top */
+  min-height: 80px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+}
+
+/* Item details text styling */
+.recipe-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+  padding-right: 12px;
+}
+
+.recipe-details h3 {
+  margin: 0;
+  font-size: var(--body-size);
+  font-weight: 600;
+  color: var(--background-text);
+}
+
+.recipe-details p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--inventory-muted);
+}
+
+/* Status alerts / expiring notes */
+.recipe-expiring {
+  color: #d97706 !important; /* warm warning yellow/orange */
+  font-weight: 500;
+}
+
+.recipe-missing {
+  color: #dc2626 !important; /* danger red for no stock */
+  font-weight: 500;
+}
+
+.recipe-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: start; /* Locks the right controls to the top */
+  font-size: var(--body-size);
+}
+
+.add-ingredients {
+  padding: 6px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-ingredients:hover:not(:disabled) {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.add-ingredients:disabled {
+  border-color: #d1d5db;
+  color: #9ca3af;
+  background-color: #f9fafb;
+  cursor: default;
+  font-size: var(--body-size);
+}
+
+.inventory-empty {
+  padding: 24px 0;
+  color: var(--inventory-muted);
+  font-size: 14px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+/* Phone-sized app preview */
+
+/* ---------- Add Item form ---------- */
+.form-main {
+  padding: 16px 24px;
+}
+
+.field-row,
+.form-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.field-row .field,
+.bought-choices .field {
+  flex: 1;
+}
+
+.form-buttons {
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ---------- Move to Inventory screen ---------- */
+.bought-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.bought-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.bought-choices {
+  display: flex;
+  gap: 16px;
+}
+
+.bought-choices .field {
+  margin-bottom: 0;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #dedede;
+}
+
+.inventory-screen main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 24px;
+}
