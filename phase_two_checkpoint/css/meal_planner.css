@@ -1,8 +1,4 @@
-/* meal_planner.css - only what is special to the Meal Planner screen.
-   Header, rows, chips and buttons are in global.css. */
 
-/* the header sits inside <main> on this page, so main has no side padding
-   and each part below adds its own 24px */
    .planner-screen main {
     padding: 0;
 }

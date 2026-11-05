@@ -1,6 +1,3 @@
-// AddItem.js - the Add Item form.
-// Needs data.js to be loaded first.
-
 var nameInput = document.getElementById("name-input");
 var quantityInput = document.getElementById("quantity-input");
 var unitSelect = document.getElementById("unit-select");

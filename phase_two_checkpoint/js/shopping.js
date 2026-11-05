@@ -1,13 +1,10 @@
-// shopping.js - shows the shopping list and handles checking things off.
-// Needs js/data.js to be loaded first (it holds the shoppingList).
-
 var listArea = document.getElementById("list-area");
 var summary = document.getElementById("summary");
 var messageBox = document.getElementById("message");
 var moveButton = document.getElementById("move-button");
 
 
-// Makes text safe to put inside HTML (so a name like "<b>" can't break the page)
+// Makes text safe to put inside HTML 
 function escapeText(text) {
   return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
@@ -24,7 +21,6 @@ function hideMessage() {
 }
 
 // ---------- Counting ----------
-// countItems(false) = all items, countItems(true) = only checked items
 function countItems(onlyChecked) {
   var count = 0;
   for (var g = 0; g < shoppingList.length; g++) {
@@ -54,7 +50,7 @@ function updateSummary() {
 
   moveButton.textContent = "Move to inventory (" + checked + ")";
 
-  // the count on the right of each group heading ("2 to buy")
+  // the count on the right of each group heading 
   for (var g = 0; g < shoppingList.length; g++) {
     var countText = document.getElementById("count" + g);
     if (countText === null) {
@@ -165,7 +161,7 @@ function goToBought() {
 // ---------- Start ----------
 showList();
 
-// show a message left by the previous page (like "Butter was added")
+// show a message left by the previous page 
 var savedMessage = takeMessage();
 if (savedMessage !== "") {
   showMessage(savedMessage, "");

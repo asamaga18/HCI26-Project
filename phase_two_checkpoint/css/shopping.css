@@ -1,10 +1,9 @@
-/* shopping.css - only what is special to the three Shopping screens */
 
    .shop-main {
     padding: 8px 24px 16px;
   }
   
-  /* ---------- Groups (one per recipe) ---------- */
+  /* ---------- Groups  ---------- */
   .shop-group {
     margin-top: 16px;
   }

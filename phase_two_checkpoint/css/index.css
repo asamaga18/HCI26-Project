@@ -1,7 +1,4 @@
-/* index.css - only what is special to the Inventory screen.
-   Header, chips, rows and buttons are in global.css. */
-
-   .inventory-header h1 {
+ .inventory-header h1 {
     margin-bottom: 12px;
   }
   

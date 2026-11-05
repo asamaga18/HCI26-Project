@@ -39,7 +39,7 @@ function saveData(key, value) {
   }
 }
 
-// A short message to show on the NEXT page (like "Butter was added").
+// A short message to show on the NEXT page 
 function saveMessage(text) {
   saveData("kk_message", text);
 }
@@ -67,18 +67,13 @@ function resetSampleData() {
 }
 
 
-// For buttons that are not built yet. Use it like this:
-//   <button onclick="underDevelopment()">Edit</button>
+// For buttons that are not built yet.
 function underDevelopment() {
   alert("Under development");
 }
 
 
 // ---------- The data ----------
-
-// If you change the inventory (add, remove, mark used up), call
-//   saveData("kk_inventory", inventory);
-// afterwards so the other pages see the change.
 const inventory = loadData("kk_inventory", [
   { id: 1, name: "Greek yogurt", storage: "Fridge", qty: "0 tubs", status: "no-stock" },
   { id: 2, name: "Spinach", storage: "Fridge", qty: "1 bag", status: "expiring", note: "Expires tomorrow" },
@@ -135,7 +130,7 @@ const mealPlan = [
 ];
 
 
-// The shopping list is split into groups (one per recipe, plus "Added by me").
+// The shopping list is split into groups 
 const shoppingList = loadData("kk_shoppingList", [
   {
     group: "For Veggie Omelet",
@@ -161,10 +156,6 @@ const shoppingList = loadData("kk_shoppingList", [
 
 
 // ---------- Helper functions for the shopping list ----------
-// Dhruv and Amogh: call addToShoppingList to put an ingredient on the list.
-// Example:
-//   addToShoppingList("For Veggie Omelet", { name: "Eggs", qty: "2 needed", note: "you have 2 of 4" });
-
 // Looks for an item anywhere on the list by name. Gives back the item, or null.
 function findShoppingItem(name) {
   var wanted = name.trim().toLowerCase();
@@ -222,8 +213,6 @@ function addToShoppingList(groupName, item) {
 
 // Adds an item to the inventory. If something with the same name is already
 // there, it is updated instead of added twice.
-// Example:
-//   addToInventory({ name: "Butter", storage: "Fridge", qty: "1 box", status: "ok", note: "Expires in 1 month" });
 function addToInventory(newItem) {
   var wanted = newItem.name.trim().toLowerCase();
 

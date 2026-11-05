@@ -115,8 +115,7 @@ function addMeal(index) {
 }
 
 
-// Deep feature: look at every recipe in the plan and figure out
-// what ingredients still need to be bought
+
 function generateShoppingList() {
   var needed = [];
 

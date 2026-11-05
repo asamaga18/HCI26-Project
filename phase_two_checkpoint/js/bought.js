@@ -1,7 +1,3 @@
-// bought.js - "Move to Inventory" screen.
-// Lets the user pick where each checked-off item is stored and when it expires.
-// Needs js/data.js to be loaded first.
-
 var boughtArea = document.getElementById("bought-area");
 var summary = document.getElementById("summary");
 var confirmButton = document.getElementById("confirm-button");
@@ -137,7 +133,7 @@ function showItems() {
 function confirmAdd() {
   var items = getCheckedItems();
 
-  // 1. put each item in the inventory
+  // put each item in the inventory
   for (var i = 0; i < items.length; i++) {
     var item = items[i];
     var storage = document.getElementById("storage" + item.id).value;
@@ -152,7 +148,7 @@ function confirmAdd() {
     });
   }
 
-  // 2. take the checked items off the shopping list (going backwards so removing is safe)
+  // take the checked items off the shopping list 
   for (var g = shoppingList.length - 1; g >= 0; g--) {
     for (var j = shoppingList[g].items.length - 1; j >= 0; j--) {
       if (shoppingList[g].items[j].checked) {
@@ -165,7 +161,7 @@ function confirmAdd() {
   }
   saveData("kk_shoppingList", shoppingList);
 
-  // 3. go back to the list with a confirmation message
+  // go back to the list with a confirmation message
   if (items.length === 1) {
     saveMessage("1 item was added to your inventory.");
   } else {
