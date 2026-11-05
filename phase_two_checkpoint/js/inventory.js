@@ -1,6 +1,3 @@
-// inventory.js - Manages inventory rendering across Fridge, Pantry, and Freezer buckets.
-// Requires js/data.js to be loaded first.
-
 const INVENTORY_FILTERS_KEY = "kitchenKompanionInventoryFilters";
 
 const searchInput = document.querySelector("#inventory-search");
@@ -223,7 +220,6 @@ function toggleBucket(sectionId) {
 
     section.classList.toggle("collapsed");
 
-    // Optional: Save collapsed state in localStorage so it remembers user preference
     const isCollapsed = section.classList.contains("collapsed");
     localStorage.setItem(`kk_bucket_${sectionId}`, isCollapsed);
 }
@@ -239,5 +235,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Initial render call on page load
+
 renderInventory();
